@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xcbO7hWmA9M=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\OneDrive\\Área de Trabalho\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSalas.Api\\ReservaDeSalas.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.5\\microsoft.aspnetcore.openapi.10.0.5.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
