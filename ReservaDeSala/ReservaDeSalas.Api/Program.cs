@@ -1,30 +1,44 @@
+using ReservaDeSalas.Api.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.MapGet("/", () => "API rodando");
+// ✅ LISTA GLOBAL (IMPORTANTE)
+var salas = new List<Sala>();
 
-app.MapGet("/weatherforecast", () =>
+app.MapGet("/salas", () => salas);
+
+app.MapPost("/salas", (Sala sala) =>
 {
-    var summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot"
-    };
+    sala.Id = salas.Count + 1;
+    salas.Add(sala);
+    return Results.Created($"/salas/{sala.Id}", sala);
+});
+app.MapPut("/salas/{id}", (int id, Sala salaAtualizada) =>
+{
+    var sala = salas.FirstOrDefault(s => s.Id == id);
 
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
+    if (sala is null)
+        return Results.NotFound();
 
-    return forecast;
+    sala.Nome = salaAtualizada.Nome;
+    sala.Capacidade = salaAtualizada.Capacidade;
+
+    return Results.Ok(sala);
+});
+
+app.MapDelete("/salas/{id}", (int id) =>
+{
+    var sala = salas.FirstOrDefault(s => s.Id == id);
+
+    if (sala is null)
+        return Results.NotFound();
+
+    salas.Remove(sala);
+
+    return Results.NoContent();
 });
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary);
