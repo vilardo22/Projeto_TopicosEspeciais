@@ -1,6 +1,7 @@
 {
   "version": 3,
   "targets": {
+<<<<<<< HEAD
     "net10.0": {
       "Microsoft.AspNetCore.OpenApi/10.0.5": {
         "type": "package",
@@ -36,6 +37,14 @@
             "related": ".pdb;.xml"
           }
         }
+=======
+    "net8.0": {
+      "Microsoft.AspNetCore.OpenApi/10.0.5": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.AspNetCore.OpenApi.targets": {}
+        }
+>>>>>>> feature/fix-dotnet8
       }
     }
   },
@@ -57,6 +66,7 @@
         "microsoft.aspnetcore.openapi.10.0.5.nupkg.sha512",
         "microsoft.aspnetcore.openapi.nuspec"
       ]
+<<<<<<< HEAD
     },
     "Microsoft.OpenApi/2.0.0": {
       "sha512": "GGYLfzV/G/ct80OZ45JxnWP7NvMX1BCugn/lX7TH5o0lcVaviavsLMTxmFV2AybXWjbi3h6FF1vgZiTK6PXndw==",
@@ -79,15 +89,26 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+=======
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+>>>>>>> feature/fix-dotnet8
       "Microsoft.AspNetCore.OpenApi >= 10.0.5"
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\user\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\jooxu\\.nuget\\packages\\": {}
+>>>>>>> feature/fix-dotnet8
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\user\\OneDrive\\Área de Trabalho\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSalas.Api\\ReservaDeSalas.Api.csproj",
       "projectName": "ReservaDeSalas.Api",
       "projectPath": "C:\\Users\\user\\OneDrive\\Área de Trabalho\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSalas.Api\\ReservaDeSalas.Api.csproj",
@@ -99,13 +120,31 @@
       ],
       "originalTargetFrameworks": [
         "net10.0"
+=======
+      "projectUniqueName": "C:\\Users\\jooxu\\Desktop\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSalas.Api\\ReservaDeSalas.Api.csproj",
+      "projectName": "ReservaDeSalas.Api",
+      "projectPath": "C:\\Users\\jooxu\\Desktop\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSalas.Api\\ReservaDeSalas.Api.csproj",
+      "packagesPath": "C:\\Users\\jooxu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jooxu\\Desktop\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSalas.Api\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\jooxu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+>>>>>>> feature/fix-dotnet8
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
+<<<<<<< HEAD
         "net10.0": {
           "targetAlias": "net10.0",
+=======
+        "net8.0": {
+          "targetAlias": "net8.0",
+>>>>>>> feature/fix-dotnet8
           "projectReferences": {}
         }
       },
@@ -117,6 +156,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
+<<<<<<< HEAD
         "auditMode": "all"
       },
       "SdkAnalysisLevel": "10.0.200"
@@ -124,6 +164,14 @@
     "frameworks": {
       "net10.0": {
         "targetAlias": "net10.0",
+=======
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+>>>>>>> feature/fix-dotnet8
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
@@ -149,6 +197,7 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
@@ -564,6 +613,9 @@
           "System.Xml.XPath": "(,4.3.32767]",
           "System.Xml.XPath.XDocument": "(,5.0.32767]"
         }
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+>>>>>>> feature/fix-dotnet8
       }
     }
   }

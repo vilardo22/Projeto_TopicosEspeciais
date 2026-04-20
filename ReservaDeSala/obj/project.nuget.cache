@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "4NRxQK/i9Uk=",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\OneDrive\\Área de Trabalho\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSala.csproj",
+=======
+  "dgSpecHash": "BxaeDU+//qc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jooxu\\Desktop\\Projeto_TopicosEspeciais\\ReservaDeSala\\ReservaDeSala.csproj",
+>>>>>>> feature/fix-dotnet8
   "expectedPackageFiles": [],
   "logs": []
 }
