@@ -1,5 +1,0 @@
-C:\Users\user\OneDrive\Área de Trabalho\Projeto_TopicosEspeciais\ReservaDeSala\obj\Debug\net10.0\ReservaDeSala.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\user\OneDrive\Área de Trabalho\Projeto_TopicosEspeciais\ReservaDeSala\obj\Debug\net10.0\ReservaDeSala.AssemblyInfoInputs.cache
-C:\Users\user\OneDrive\Área de Trabalho\Projeto_TopicosEspeciais\ReservaDeSala\obj\Debug\net10.0\ReservaDeSala.AssemblyInfo.cs
-C:\Users\user\OneDrive\Área de Trabalho\Projeto_TopicosEspeciais\ReservaDeSala\obj\Debug\net10.0\ReservaDeSala.csproj.CoreCompileInputs.cache
-C:\Users\user\OneDrive\Área de Trabalho\Projeto_TopicosEspeciais\ReservaDeSala\obj\Debug\net10.0\ReservaDeSala.sourcelink.json
