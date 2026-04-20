@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaDeSala", "ReservaDeSala\ReservaDeSala.csproj", "{6E06FA56-29B9-FCFC-C245-54C7A5159455}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReservaDeSala (1)", "ReservaDeSala (1)", "{93A74ED9-CBC5-2437-E8C5-7AD3C3694711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservaDeSalas.Api", "ReservaDeSala\ReservaDeSalas.Api\ReservaDeSalas.Api.csproj", "{AC192C98-9DB6-4865-0F43-9EA1B4A7FF66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E06FA56-29B9-FCFC-C245-54C7A5159455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E06FA56-29B9-FCFC-C245-54C7A5159455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E06FA56-29B9-FCFC-C245-54C7A5159455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E06FA56-29B9-FCFC-C245-54C7A5159455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC192C98-9DB6-4865-0F43-9EA1B4A7FF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC192C98-9DB6-4865-0F43-9EA1B4A7FF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC192C98-9DB6-4865-0F43-9EA1B4A7FF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC192C98-9DB6-4865-0F43-9EA1B4A7FF66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC192C98-9DB6-4865-0F43-9EA1B4A7FF66} = {93A74ED9-CBC5-2437-E8C5-7AD3C3694711}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D3D0EC7-5E73-43E3-9522-08026B63350D}
+	EndGlobalSection
+EndGlobal
