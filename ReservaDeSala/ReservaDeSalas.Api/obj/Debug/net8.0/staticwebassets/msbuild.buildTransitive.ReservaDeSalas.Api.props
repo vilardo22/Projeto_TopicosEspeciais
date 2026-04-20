@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\ReservaDeSalas.Api.props" />
-</Project>
