@@ -1,0 +1,26 @@
+### Criar sala
+POST http://localhost:5181/salas
+Content-Type: application/json
+
+{
+  "nome": "sala 101",
+  "capacidade": 30
+}
+
+### Buscar sala
+GET http://localhost:5181/salas/1
+
+### Atualizar sala
+PUT http://localhost:5181/salas/1
+Content-Type: application/json
+
+{
+  "nome": "Sala Atualizada",
+  "capacidade": 50
+}
+
+### Deletar sala
+DELETE http://localhost:5181/salas/1
+
+### Buscar novamente (vai dar 404)
+GET http://localhost:5181/salas/1

@@ -1,0 +1,24 @@
+POST http://localhost:5181/salas
+Content-Type: application/json
+
+{
+  "nome": "Sala 101",
+  "capacidade": 30
+}
+###
+GET http://localhost:5181/salas
+###
+DELETE http://localhost:5181/salas/1
+###
+GET http://localhost:5181/salas
+
+###
+PUT http://localhost:5181/salas/1
+Content-Type: application/json
+
+{
+  "nome": "Sala Atualizada",
+  "capacidade": 50
+}
+###
+GET http://localhost:5181/salas

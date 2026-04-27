@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# Projeto_TopicosEspeciais
+=======
 # Projeto_TopicosEspeciais
 📘 Sistema de Reserva de Salas
 👥 Integrantes
@@ -93,3 +96,4 @@ Correção de inconsistências entre documentação e código
 
 🚀 Observação Final
 Este projeto foi desenvolvido com foco em simular um ambiente real de desenvolvimento de software, aplicando conceitos de API REST, banco de dados relacional, trabalho em equipe e uso de ferramentas modernas de desenvolvimento.
+>>>>>>> feature/fix-dotnet8
