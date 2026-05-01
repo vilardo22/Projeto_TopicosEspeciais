@@ -1,20 +1,39 @@
+using ReservaDeSalas.Api.Data;
+using Microsoft.EntityFrameworkCore;
 using ReservaDeSalas.Api.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Banco
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=reservas.db"));
+
 var app = builder.Build();
+
+// Swagger (DEPOIS do build)
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
 // ✅ LISTA GLOBAL (IMPORTANTE)
-var salas = new List<Sala>();
 
-app.MapGet("/salas/{id}", (int id) =>
+
+app.MapGet("/salas/{id}", (int id, AppDbContext db) =>
 {
-    var sala = salas.FirstOrDefault(s => s.Id == id);
+    var sala = db.Salas.Find(id);
     return sala is not null ? Results.Ok(sala) : Results.NotFound();
 });
+app.MapGet("/salas", (AppDbContext db) =>
+{
+    return db.Salas.ToList();
+});
 
-app.MapPost("/salas", (Sala sala) =>
+app.MapPost("/salas", (Sala sala, AppDbContext db) =>
 {
     if (string.IsNullOrWhiteSpace(sala.Nome))
         return Results.BadRequest("Nome é obrigatório");
@@ -22,15 +41,15 @@ app.MapPost("/salas", (Sala sala) =>
     if (sala.Capacidade <= 0)
         return Results.BadRequest("Capacidade deve ser maior que 0");
 
-    sala.Id = salas.Count + 1;
-    salas.Add(sala);
+    db.Salas.Add(sala);
+    db.SaveChanges();
 
     return Results.Created($"/salas/{sala.Id}", sala);
 });
 
-app.MapPut("/salas/{id}", (int id, Sala salaAtualizada) =>
+app.MapPut("/salas/{id}", (int id, Sala salaAtualizada, AppDbContext db) =>
 {
-    var sala = salas.FirstOrDefault(s => s.Id == id);
+    var sala = db.Salas.Find(id);
 
     if (sala is null)
         return Results.NotFound();
@@ -38,19 +57,23 @@ app.MapPut("/salas/{id}", (int id, Sala salaAtualizada) =>
     sala.Nome = salaAtualizada.Nome;
     sala.Capacidade = salaAtualizada.Capacidade;
 
+    db.SaveChanges();
+
     return Results.Ok(sala);
 });
 
-app.MapDelete("/salas/{id}", (int id) =>
+app.MapDelete("/salas/{id}", (int id, AppDbContext db) =>
 {
-    var sala = salas.FirstOrDefault(s => s.Id == id);
+    var sala = db.Salas.Find(id);
 
     if (sala is null)
         return Results.NotFound();
 
-    salas.Remove(sala);
+    db.Salas.Remove(sala);
+    db.SaveChanges();
 
     return Results.NoContent();
 });
+
 
 app.Run();
