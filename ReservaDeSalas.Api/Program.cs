@@ -11,7 +11,10 @@ builder.Services.AddSwaggerGen();
 // Banco
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=reservas.db"));
-
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+{
+    options.SerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+});
 var app = builder.Build();
 
 // Swagger (DEPOIS do build)
