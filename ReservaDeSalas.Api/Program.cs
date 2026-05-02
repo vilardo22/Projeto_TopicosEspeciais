@@ -20,7 +20,7 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
-// ✅ LISTA GLOBAL (IMPORTANTE)
+
 
 
 app.MapGet("/salas/{id}", (int id, AppDbContext db) =>
@@ -75,5 +75,83 @@ app.MapDelete("/salas/{id}", (int id, AppDbContext db) =>
     return Results.NoContent();
 });
 
+app.MapPost("/reservas", (Reserva reserva, AppDbContext db) =>
+{
+    // ✅ 1. Validar se Sala existe
+    var salaExiste = db.Salas.Any(s => s.Id == reserva.SalaId);
+    if (!salaExiste)
+        return Results.BadRequest("Sala não existe");
 
+    // ✅ 2. Validar se Usuário existe
+    var usuarioExiste = db.Usuarios.Any(u => u.Id == reserva.UsuarioId);
+    if (!usuarioExiste)
+        return Results.BadRequest("Usuário não existe");
+
+    // ✅ 3. Validar horário
+    if (reserva.HoraInicio >= reserva.HoraFim)
+    {
+        return Results.BadRequest("HoraInicio deve ser menor que HoraFim");
+    }
+
+    // 🔴 4. Regra de conflito (a sua já tava certa 👏)
+    var conflito = db.Reservas.Any(r =>
+        r.SalaId == reserva.SalaId &&
+        r.Data == reserva.Data &&
+        reserva.HoraInicio < r.HoraFim &&
+        reserva.HoraFim > r.HoraInicio
+    );
+
+    if (conflito)
+    {
+        return Results.BadRequest(new
+        {
+            erro = "Já existe uma reserva para esta sala neste horário."
+        });
+    }
+
+    // ✅ 5. Salvar
+    db.Reservas.Add(reserva);
+    db.SaveChanges();
+
+    return Results.Ok(reserva);
+});
+
+app.MapGet("/reservas", (AppDbContext db) =>
+{
+    return db.Reservas
+    .Include(r => r.Sala)
+    .Include(r => r.Usuario)
+    .ToList();
+});
+
+app.MapDelete("/reservas/{id}", (int id, AppDbContext db) =>
+{
+    var reserva = db.Reservas.Find(id);
+
+    if (reserva == null)
+        return Results.NotFound();
+
+    db.Reservas.Remove(reserva);
+    db.SaveChanges();
+
+    return Results.Ok(new { mensagem = "Reserva removida com sucesso" });
+});
+app.MapPost("/usuarios", (Usuario usuario, AppDbContext db) =>
+{
+    if (string.IsNullOrWhiteSpace(usuario.Nome))
+        return Results.BadRequest("Nome é obrigatório");
+
+    if (string.IsNullOrWhiteSpace(usuario.Email))
+        return Results.BadRequest("Email é obrigatório");
+
+    db.Usuarios.Add(usuario);
+    db.SaveChanges();
+
+    return Results.Ok(usuario);
+});
+
+app.MapGet("/usuarios", (AppDbContext db) =>
+{
+    return db.Usuarios.ToList();
+});
 app.Run();
